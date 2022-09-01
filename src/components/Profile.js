@@ -31,7 +31,12 @@ const Profile = props => {
       <ul>
         <li>
           <span>
-            Github: <a href={`https://github.com/${github}`}>{`@${github}`}</a>
+            Github:{" "}
+            <a
+              href={`https://github.com/${github}`}
+              target="_blank"
+              rel="noreferrer"
+            >{`@${github}`}</a>
           </span>
         </li>
         <li>
