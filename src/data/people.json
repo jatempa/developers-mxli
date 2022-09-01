@@ -14,7 +14,8 @@
       "git",
       "AWS Certified Cloud Practitioner"
     ],
-    "employed": true
+    "employed": true,
+    "picture": "jatempa.jpeg"
   },
   {
     "id": "54119f05-cce9-47f4-b717-bcdc445568a3",
@@ -38,7 +39,8 @@
       "Windows",
       "Linux"
     ],
-    "employed": true
+    "employed": true,
+    "picture": null
   },
   {
     "id": "7ddd6f4d-04bf-469a-b283-132ee7a386a1",
@@ -46,7 +48,8 @@
     "lastName": "Martinez",
     "github": "Eltunas170",
     "skills": ["html", "css", "javascript", "reactjs", "c#", "git"],
-    "employed": false
+    "employed": false,
+    "picture": null
   },
   {
     "id": "0470118c-df01-4f20-9d10-e1dc02bf5c0d",
@@ -54,7 +57,8 @@
     "lastName": "Quintero",
     "github": "QuinteroBriana",
     "skills": ["Javascript", "jquery", "html", "css", "c#", "c++", "java"],
-    "employed": false
+    "employed": false,
+    "picture": null
   },
   {
     "id": "eb1e53b8-d3c9-42c1-8ac0-497a56ec6271",
@@ -62,7 +66,8 @@
     "lastName": "Rosas",
     "github": "SalmaRosas",
     "skills": ["Javascript", "html", "css", "php", "c#", "java"],
-    "employed": false
+    "employed": false,
+    "picture": null
   },
   {
     "id": "ad6ae93d-aa34-4a7b-8610-1ed287aba29b",
@@ -89,7 +94,8 @@
       "Unity 3D",
       "Unreal Engine"
     ],
-    "employed": true
+    "employed": true,
+    "picture": null
   },
   {
     "id": "1687e7fb-46c4-42f5-9079-92f9e8cdfbe4",
@@ -97,7 +103,8 @@
     "lastName": "Moncada",
     "github": "rosendo655",
     "skills": ["C#", "C", "MSSQL", "Python", "Java"],
-    "employed": true
+    "employed": true,
+    "picture": null
   },
   {
     "id": "ee50a76f-733c-471e-be34-53329461c4f2",
@@ -116,7 +123,8 @@
       "magento",
       "shopify"
     ],
-    "employed": true
+    "employed": true,
+    "picture": null
   },
   {
     "id": "4017b9e0-88a0-4e32-bd37-334d1ecd610c",
@@ -142,7 +150,8 @@
       "git",
       "scrum"
     ],
-    "employed": true
+    "employed": true,
+    "picture": null
   },
   {
     "id": "7096a54d-8c10-4dfa-8009-641c2c01eae4",
@@ -150,7 +159,8 @@
     "lastName": "Cañedo",
     "github": "MrDonTacos",
     "skills": [".Net Framework", "C#", "ASP .NET", "AngularJS", "Javascript"],
-    "employed": true
+    "employed": true,
+    "picture": null
   },
   {
     "id": "a4a96caa-1409-4388-99a6-61a62f66ed5d",
@@ -158,7 +168,8 @@
     "lastName": "Nieto",
     "github": "misaelnieto",
     "skills": ["Linux", "Python", "Django"],
-    "employed": true
+    "employed": true,
+    "picture": null
   },
   {
     "id": "9e60ef80-d354-4dd2-9715-561e822cf077",
@@ -176,7 +187,8 @@
       "git",
       "linux"
     ],
-    "employed": true
+    "employed": true,
+    "picture": null
   },
   {
     "id": "3ab7f042-0391-40dd-9fea-319ce1bc08f6",
@@ -196,7 +208,8 @@
       "React",
       "Git"
     ],
-    "employed": true
+    "employed": true,
+    "picture": null
   },
   {
     "id": "087fab40-29fb-49db-bedb-f59ad1905e85",
@@ -216,7 +229,8 @@
       "Sql",
       "Git"
     ],
-    "employed": true
+    "employed": true,
+    "picture": null
   },
   {
     "id": "93a8bf15-4119-4a64-add7-10d3acafdb84",
@@ -224,7 +238,8 @@
     "lastName": "Cabrera",
     "github": "Ricari88",
     "skills": ["PHP", "Javascript", "Ruby on Rails"],
-    "employed": true
+    "employed": true,
+    "picture": null
   },
   {
     "id": "b5644e35-2455-4f7d-bad4-6feef52f4244",
@@ -232,7 +247,8 @@
     "lastName": "Yebra",
     "github": "andresyebra",
     "skills": ["Ruby", "Ruby on Rails", "Linux"],
-    "employed": true
+    "employed": true,
+    "picture": null
   },
   {
     "id": "1336d440-d4b7-4600-859e-738833d61936",
@@ -240,7 +256,8 @@
     "lastName": "Valdez",
     "github": "AbelValdez",
     "skills": ["Angular", "Typescript", ".net", "Node js", "JavaScript"],
-    "employed": true
+    "employed": true,
+    "picture": null
   },
   {
     "id": "61c47d5f-dac7-43da-ae95-61c3c3368b8f",
@@ -264,6 +281,7 @@
       "Kotlin",
       "Android"
     ],
-    "employed": true
+    "employed": true,
+    "picture": null
   }
 ]
