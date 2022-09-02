@@ -1,5 +1,6 @@
 import React from "react"
 import styled from "styled-components"
+import GithubLink from "./GithubLink"
 import Picture from "./Picture"
 
 const ProfileCard = styled.div`
@@ -14,17 +15,14 @@ const Profile = props => {
   const { firstName, lastName, github, skills, employed, picture } = props
   return (
     <ProfileCard>
-      <Picture picture={picture} />
+      <GithubLink github={github}>
+        <Picture picture={picture} />
+      </GithubLink>
       <h2>{`${firstName} ${lastName}`}</h2>
       <ul>
         <li>
           <span>
-            Github:{" "}
-            <a
-              href={`https://github.com/${github}`}
-              target="_blank"
-              rel="noreferrer"
-            >{`@${github}`}</a>
+            Github: <GithubLink github={github}>{`@${github}`}</GithubLink>
           </span>
         </li>
         <li>
