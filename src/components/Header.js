@@ -8,7 +8,8 @@ const HeaderContainer = styled.div`
   top: 0;
   background-color: white;
   height: 100px;
-  display: flex;
+  display: grid;
+  grid-template-columns: 450px 1fr;
   align-items: center;
   margin-bottom: 50px;
 
