@@ -283,5 +283,14 @@
     ],
     "employed": true,
     "picture": null
+  },
+  {
+    "id": "db1f4977-1eca-41f6-8894-4f430f7201ea",
+    "firstName": "José",
+    "lastName": "Rios",
+    "github": "jose031199",
+    "skills": ["Java", "C#", "Javascript", "PHP", "Python", "SQL Server"],
+    "employed": true,
+    "picture": null
   }
 ]
