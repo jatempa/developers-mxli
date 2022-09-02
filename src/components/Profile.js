@@ -1,17 +1,6 @@
 import React from "react"
 import styled from "styled-components"
-
-const ProfilePicture = styled.img`
-  height: 250px;
-
-  @media (max-width: 800px) {
-    height: 200px;
-  }
-
-  @media (max-width: 600px) {
-    height: 150px;
-  }
-`
+import Picture from "./Picture"
 
 const ProfileCard = styled.div`
   line-height: 1.75;
@@ -25,10 +14,7 @@ const Profile = props => {
   const { firstName, lastName, github, skills, employed, picture } = props
   return (
     <ProfileCard>
-      <ProfilePicture
-        src={`../../images/${picture ?? "default_profile.svg"}`}
-        alt="profile-picture"
-      />
+      <Picture picture={picture} />
       <h2>{`${firstName} ${lastName}`}</h2>
       <ul>
         <li>
