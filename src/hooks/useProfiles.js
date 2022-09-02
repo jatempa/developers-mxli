@@ -8,7 +8,7 @@ const useProfiles = () => {
 
   useEffect(() => {
     let filteredResults = []
-    if (name.length < 1) {
+    if (name.length < 3) {
       filteredResults = people.filter(profile => {
         switch (employmentStatus) {
           case "employed":
