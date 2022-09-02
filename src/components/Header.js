@@ -10,6 +10,7 @@ const HeaderContainer = styled.div`
   height: 100px;
   display: flex;
   align-items: center;
+  margin-bottom: 50px;
 
   h2 {
     margin-right: 15px;
