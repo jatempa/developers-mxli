@@ -5,6 +5,7 @@ import { InputContainer } from "./InputContainer"
 
 const SearchBarContainer = styled(InputContainer)`
   & > img {
+    width: 1.2rem;
     position: absolute;
     right: 25px;
 
@@ -55,7 +56,11 @@ const SearchBar = ({ name, setName }) => {
     <SearchBarContainer style={{ position: "relative" }}>
       <Label>Search:</Label>
       <SearchBarInput value={name} onChange={handleChange}></SearchBarInput>
-      <img src={"../../static/close-button.svg"} onClick={handleClear} />
+      <img
+        src={`../../crossicon.png`}
+        onClick={handleClear}
+        alt={"cross-icon"}
+      />
     </SearchBarContainer>
   )
 }
