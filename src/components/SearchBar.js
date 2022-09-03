@@ -2,11 +2,9 @@ import React from "react"
 import Label from "./Label"
 import styled from "styled-components"
 import { InputContainer } from "./InputContainer"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faXmark } from "@fortawesome/free-solid-svg-icons"
 
 const SearchBarContainer = styled(InputContainer)`
-  & > svg {
+  & > img {
     position: absolute;
     right: 25px;
 
@@ -57,7 +55,7 @@ const SearchBar = ({ name, setName }) => {
     <SearchBarContainer style={{ position: "relative" }}>
       <Label>Search:</Label>
       <SearchBarInput value={name} onChange={handleChange}></SearchBarInput>
-      <FontAwesomeIcon icon={faXmark} onClick={handleClear} />
+      <img src={"../../static/close-button.svg"} onClick={handleClear} />
     </SearchBarContainer>
   )
 }
