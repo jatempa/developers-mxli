@@ -56,11 +56,13 @@ const SearchBar = ({ name, setName }) => {
     <SearchBarContainer style={{ position: "relative" }}>
       <Label>Search:</Label>
       <SearchBarInput value={name} onChange={handleChange}></SearchBarInput>
-      <img
-        src={`../../crossicon.png`}
-        onClick={handleClear}
-        alt={"cross-icon"}
-      />
+      {name.length >= 3 ? (
+        <img
+          src={`../../crossicon.png`}
+          onClick={handleClear}
+          alt={"cross-icon"}
+        />
+      ) : null}
     </SearchBarContainer>
   )
 }
