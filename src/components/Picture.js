@@ -2,15 +2,7 @@ import React from "react"
 import styled from "styled-components"
 
 const ProfilePicture = styled.img`
-  height: 250px;
-
-  @media (max-width: 800px) {
-    height: 200px;
-  }
-
-  @media (max-width: 600px) {
-    height: 150px;
-  }
+  width: 100%;
 `
 
 const Picture = props => {
