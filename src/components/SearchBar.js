@@ -2,6 +2,27 @@ import React from "react"
 import Label from "./Label"
 import styled from "styled-components"
 import { InputContainer } from "./InputContainer"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faXmark } from "@fortawesome/free-solid-svg-icons"
+
+const SearchBarContainer = styled(InputContainer)`
+  & > svg {
+    position: absolute;
+    right: 25px;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    @media (max-width: 800px) {
+      right: 20px;
+    }
+
+    @media (max-width: 600px) {
+      right: 15px;
+    }
+  }
+`
 
 const SearchBarInput = styled.input`
   height: 100%;
@@ -27,15 +48,17 @@ const SearchBar = ({ name, setName }) => {
     setName(event.target.value)
   }
 
+  const handleClear = event => {
+    event.preventDefault()
+    setName("")
+  }
+
   return (
-    <InputContainer>
+    <SearchBarContainer style={{ position: "relative" }}>
       <Label>Search:</Label>
-      <SearchBarInput
-        value={name}
-        onChange={handleChange}
-        placeholder={"Introduce a profile name or skill"}
-      />
-    </InputContainer>
+      <SearchBarInput value={name} onChange={handleChange}></SearchBarInput>
+      <FontAwesomeIcon icon={faXmark} onClick={handleClear} />
+    </SearchBarContainer>
   )
 }
 
