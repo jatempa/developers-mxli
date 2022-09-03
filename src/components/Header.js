@@ -21,8 +21,8 @@ const Header = props => {
     <HeaderContainer>
       <SearchBar name={name} setName={setName} />
       <StatusSelect
-      // employmentStatus={employmentStatus}
-      // setEmploymentStatus={setEmploymentStatus}
+        employmentStatus={employmentStatus}
+        setEmploymentStatus={setEmploymentStatus}
       />
     </HeaderContainer>
   )

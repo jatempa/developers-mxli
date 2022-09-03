@@ -3,15 +3,18 @@ import Label from "./Label"
 import styled from "styled-components"
 import { InputContainer } from "./InputContainer"
 
-const EmploymentStatusSelect = styled.select`
-  height: 25px;
-  font-size: 1.2rem;
-  border: none;
+const SelectInput = styled.select`
+  border: 1px solid;
   background-color: transparent;
+  height: 100%;
+  margin: 0 15px;
+
+  @media (max-width: 800px) {
+    margin: 0 10px;
+  }
 
   @media (max-width: 600px) {
-    font-size: 1rem;
-    min-width: 50px;
+    margin: 0 5px;
   }
 
   & option {
@@ -34,18 +37,13 @@ const StatusSelect = ({ employmentStatus, setEmploymentStatus }) => {
   return (
     <InputContainer>
       <Label>Status:</Label>
+      <SelectInput value={employmentStatus} onChange={handleChange}>
+        <option value="all">All</option>
+        <option value="employed">Employed</option>
+        <option value="unemployed">Unemployed</option>
+      </SelectInput>
     </InputContainer>
   )
-
-  // return (
-  //   <div>
-  //     <EmploymentStatusSelect value={employmentStatus} onChange={handleChange}>
-  //       <option value="all">All</option>
-  //       <option value="employed">Employed</option>
-  //       <option value="unemployed">Unemployed</option>
-  //     </EmploymentStatusSelect>
-  //   </div>
-  // )
 }
 
 export default StatusSelect
