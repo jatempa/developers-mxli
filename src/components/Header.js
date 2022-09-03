@@ -11,11 +11,12 @@ const HeaderContainer = styled.div`
   max-height: 100px;
   margin-bottom: 50px;
   display: grid;
-  grid-template-columns: repeat(2, minmax(100px, 350px));
+  grid-template-columns: repeat(2, 1fr);
   align-items: center;
 `
 
-const Header = ({ employmentStatus, setEmploymentStatus, name, setName }) => {
+const Header = props => {
+  const { employmentStatus, setEmploymentStatus, name, setName } = props
   return (
     <HeaderContainer>
       <SearchBar name={name} setName={setName} />

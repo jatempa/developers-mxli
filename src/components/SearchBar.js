@@ -4,19 +4,17 @@ import styled from "styled-components"
 import { InputContainer } from "./InputContainer"
 
 const SearchBarInput = styled.input`
-  /* font-size: 1.2rem;
-  height: 25px;
-  min-width: 320px;
-  border: none;
+  height: 100%;
+  width: 100%;
+  margin: 0 15px;
 
   @media (max-width: 800px) {
-    min-width: 80px;
+    margin: 0 10px;
   }
 
   @media (max-width: 600px) {
-    font-size: 1rem;
-    min-width: 250px;
-  } */
+    margin: 0 5px;
+  }
 
   &:focus {
     outline: none;
@@ -32,18 +30,13 @@ const SearchBar = ({ name, setName }) => {
   return (
     <InputContainer>
       <Label>Search:</Label>
+      <SearchBarInput
+        value={name}
+        onChange={handleChange}
+        placeholder={"Introduce a profile name or skill"}
+      />
     </InputContainer>
   )
-
-  // return (
-  //   <SearchBarContainer>
-  //     <SearchBarInput
-  //       value={name}
-  //       onChange={handleChange}
-  //       placeholder={"Introduce a profile name or skill"}
-  //     />
-  //   </SearchBarContainer>
-  // )
 }
 
 export default SearchBar
