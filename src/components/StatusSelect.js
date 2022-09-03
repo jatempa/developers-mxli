@@ -1,6 +1,7 @@
 import React from "react"
 import Label from "./Label"
 import styled from "styled-components"
+import InputContainer from "./InputContainer"
 
 const EmploymentStatusSelect = styled.select`
   height: 25px;
@@ -25,21 +26,26 @@ const EmploymentStatusSelect = styled.select`
   }
 `
 
-const EmploymentStatusFilter = ({ employmentStatus, setEmploymentStatus }) => {
+const StatusSelect = ({ employmentStatus, setEmploymentStatus }) => {
   const handleChange = event => {
     setEmploymentStatus(event.target.value)
   }
 
   return (
-    <div>
+    <InputContainer>
       <Label>Status:</Label>
-      <EmploymentStatusSelect value={employmentStatus} onChange={handleChange}>
-        <option value="all">All</option>
-        <option value="employed">Employed</option>
-        <option value="unemployed">Unemployed</option>
-      </EmploymentStatusSelect>
-    </div>
+    </InputContainer>
   )
+
+  // return (
+  //   <div>
+  //     <EmploymentStatusSelect value={employmentStatus} onChange={handleChange}>
+  //       <option value="all">All</option>
+  //       <option value="employed">Employed</option>
+  //       <option value="unemployed">Unemployed</option>
+  //     </EmploymentStatusSelect>
+  //   </div>
+  // )
 }
 
-export default EmploymentStatusFilter
+export default StatusSelect
