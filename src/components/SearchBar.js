@@ -1,10 +1,11 @@
-import React from "react"
+import React, { useState } from "react"
 import Label from "./Label"
 import styled from "styled-components"
 import { InputContainer } from "./InputContainer"
+import CrossIcon from "./utils/CrossIcon"
 
 const SearchBarContainer = styled(InputContainer)`
-  & > img {
+  & > div.cross-icon {
     width: 1.2rem;
     position: absolute;
     right: 25px;
@@ -43,26 +44,37 @@ const SearchBarInput = styled.input`
 `
 
 const SearchBar = ({ name, setName }) => {
+  const [showCrossIcon, setShowCrossIcon] = useState(false)
   const handleChange = event => {
-    setName(event.target.value)
+    let query = event.target.value
+
+    if (query.length === 0) {
+      setShowCrossIcon(false)
+    } else {
+      setShowCrossIcon(true)
+    }
+
+    setName(query)
   }
 
-  const handleClear = event => {
-    event.preventDefault()
+  const handleClear = () => {
     setName("")
+    setShowCrossIcon(false)
+  }
+
+  const handleKeyDown = e => {
+    if (e.keyCode === 13) {
+      handleClear()
+    }
   }
 
   return (
     <SearchBarContainer style={{ position: "relative" }}>
       <Label>Search:</Label>
       <SearchBarInput value={name} onChange={handleChange}></SearchBarInput>
-      {name.length >= 3 ? (
-        <img
-          src={`../../crossicon.png`}
-          onClick={handleClear}
-          alt={"cross-icon"}
-        />
-      ) : null}
+      {showCrossIcon && (
+        <CrossIcon handleClear={handleClear} handleKeyDown={handleKeyDown} />
+      )}
     </SearchBarContainer>
   )
 }
