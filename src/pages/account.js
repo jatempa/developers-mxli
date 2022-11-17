@@ -1,8 +1,7 @@
 import React from "react"
 
 import { Link } from "gatsby"
-import { useAuth0 } from "@auth0/auth0-react"
-import { withAuthenticationRequired } from "@auth0/auth0-react"
+import { useAuth0, withAuthenticationRequired } from "@auth0/auth0-react"
 
 import LogoutButton from "../components/LogoutButton"
 
