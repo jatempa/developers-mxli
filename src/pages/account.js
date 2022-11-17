@@ -17,7 +17,7 @@ const Account = () => {
         <p>Email: {user.email}</p>
         <LogoutButton />
       </nav>
-      <img src={user.picture} alt={`${user.nickname}_profile`} />
+      <img src={user.picture} alt={`${user.nickname && user.email}_profile`} />
     </>
   )
 }
