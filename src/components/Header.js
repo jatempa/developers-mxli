@@ -6,7 +6,6 @@ import styled from "styled-components"
 const HeaderContainer = styled.div`
   position: sticky;
   top: 0;
-  border: 2px solid greenyellow;
   background-color: white;
   height: 100px;
   max-height: 100px;
