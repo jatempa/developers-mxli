@@ -16,7 +16,7 @@
       "AWS Certified Cloud Practitioner"
     ],
     "employed": true,
-    "picture": "jatempa.jpeg"
+    "picture": null
   },
   {
     "id": "54119f05-cce9-47f4-b717-bcdc445568a3",
@@ -115,7 +115,7 @@
     "skills": [
       "javascript",
       "node",
-      "react",
+      "reactjs",
       "vue,php",
       "mysql",
       "mongodb",
@@ -159,7 +159,7 @@
     "firstName": "Saúl",
     "lastName": "Cañedo",
     "github": "MrDonTacos",
-    "skills": [".Net Framework", "C#", "ASP .NET", "AngularJS", "Javascript"],
+    "skills": [".Net Framework", "C#", "ASP .NET", "Angular", "Javascript"],
     "employed": true,
     "picture": null
   },
@@ -204,7 +204,7 @@
       ".Net Framework",
       "HTML",
       "CSS",
-      "vue js",
+      "VueJS",
       "Python",
       "React",
       "Git"
@@ -256,7 +256,13 @@
     "firstName": "Abel",
     "lastName": "Valdez",
     "github": "AbelValdez",
-    "skills": ["Angular", "Typescript", ".net", "Node js", "JavaScript"],
+    "skills": [
+      "Angular",
+      "Typescript",
+      ".Net Framework",
+      "Node js",
+      "JavaScript"
+    ],
     "employed": true,
     "picture": null
   },
