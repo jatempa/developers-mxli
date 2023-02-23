@@ -4,10 +4,10 @@ import styled from "styled-components"
 const ProfileFormContainer = styled.div`
   font-size: 1.2rem;
   padding: 25px;
-  margin: 3em auto;
+  margin: 2em auto;
   width: 60%;
 
-  & > h2 {
+  & > h1 {
     margin-bottom: 0.75em;
     text-align: center;
   }
@@ -25,7 +25,7 @@ const ProfileFormButton = styled.button`
   margin-top: 0.75em;
   width: 100%;
   height: 50px;
-  font-size: 2rem;
+  font-size: 1.25rem;
   font-weight: bold;
   text-transform: uppercase;
   background-color: white;
@@ -42,7 +42,7 @@ const ProfileFormButton = styled.button`
 const ProfileFormInputContainer = styled.div`
   margin-bottom: 10px;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
 
   & > input {
@@ -50,24 +50,29 @@ const ProfileFormInputContainer = styled.div`
     max-height: 30px;
     width: 80%;
   }
+
+  & > textarea {
+    width: 80%;
+    resize: none;
+  }
 `
 
 const ProfileForm = () => {
   const handleSubmit = e => {
     e.preventDefault()
-    console.log("hello world")
+    console.log("xd")
   }
 
   return (
     <ProfileFormContainer>
-      <h2>{"Create Profile"}</h2>
+      <h1>{"Create Profile"}</h1>
       <form onSubmit={handleSubmit}>
         <ProfileFormInputContainer>
-          <label htmlFor="firstName">First name: </label>
+          <label htmlFor="firstName">First Name: </label>
           <input id="firstName" name="firstName" />
         </ProfileFormInputContainer>
         <ProfileFormInputContainer>
-          <label htmlFor="lastName">Last name: </label>
+          <label htmlFor="lastName">Last Name: </label>
           <input id="lastName" name="lastName" />
         </ProfileFormInputContainer>
         <ProfileFormInputContainer>
@@ -80,7 +85,9 @@ const ProfileForm = () => {
         </ProfileFormInputContainer>
         <ProfileFormInputContainer>
           <label htmlFor="skills">Skills: </label>
-          <input id="skills" name="skills" />
+          <textarea id="skills" name="skills" rows="10" cols="50">
+            Write something here
+          </textarea>
         </ProfileFormInputContainer>
         <ProfileFormButton>Save</ProfileFormButton>
       </form>
