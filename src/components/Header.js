@@ -6,13 +6,18 @@ import styled from "styled-components"
 const HeaderContainer = styled.div`
   position: sticky;
   top: 0;
+  border: 2px solid greenyellow;
   background-color: white;
   height: 100px;
   max-height: 100px;
   margin-bottom: 50px;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr) 250px;
+  display: flex;
   align-items: center;
+  justify-content: start;
+
+  @media (max-width: 600px) {
+    justify-content: space-between;
+  }
 `
 
 const Header = props => {
