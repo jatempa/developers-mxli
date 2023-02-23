@@ -29,9 +29,10 @@ const Header = props => {
         employmentStatus={employmentStatus}
         setEmploymentStatus={setEmploymentStatus}
       />
-      <LoginContainer>
+      {/* <LoginContainer>
         <LoginButton />
-      </LoginContainer>
+        </LoginContainer>
+      */}
     </HeaderContainer>
   )
 }
