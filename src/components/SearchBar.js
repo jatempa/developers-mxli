@@ -5,6 +5,8 @@ import { InputContainer } from "./InputContainer"
 import CrossIcon from "./utils/CrossIcon"
 
 const SearchBarContainer = styled(InputContainer)`
+  width: 40%;
+
   & > div.cross-icon {
     width: 1.2rem;
     position: absolute;
@@ -22,18 +24,25 @@ const SearchBarContainer = styled(InputContainer)`
       right: 15px;
     }
   }
+
+  @media (max-width: 800px) {
+  }
+
+  @media (max-width: 600px) {
+    width: 60%;
+  }
 `
 
 const SearchBarInput = styled.input`
-  height: 100%;
   width: 100%;
+  height: 100%;
   margin: 0 15px;
 
   @media (max-width: 800px) {
     margin: 0 10px;
   }
 
-  @media (max-width: 600px) {
+  @media (max-width: 1000px) {
     margin: 0 5px;
   }
 
