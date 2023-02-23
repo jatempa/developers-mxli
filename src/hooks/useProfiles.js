@@ -3,7 +3,7 @@ import people from "../data/people.json"
 
 const useProfiles = () => {
   const [name, setName] = useState("")
-  const [employmentStatus, setEmploymentStatus] = useState("all")
+  const [employmentStatus, setEmploymentStatus] = useState("unemployed")
   const [profiles, updateProfiles] = useState(people)
 
   useEffect(() => {
