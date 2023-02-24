@@ -60,7 +60,6 @@ const ProfileFormInputContainer = styled.div`
 const ProfileForm = () => {
   const handleSubmit = e => {
     e.preventDefault()
-    console.log("xd")
   }
 
   return (
@@ -85,9 +84,13 @@ const ProfileForm = () => {
         </ProfileFormInputContainer>
         <ProfileFormInputContainer>
           <label htmlFor="skills">Skills: </label>
-          <textarea id="skills" name="skills" rows="10" cols="50">
-            Write something here
-          </textarea>
+          <input
+            id="skills"
+            name="skills"
+            rows="10"
+            cols="50"
+            placeholder="Introduce your skills separated by commas"
+          />
         </ProfileFormInputContainer>
         <ProfileFormButton>Save</ProfileFormButton>
       </form>
