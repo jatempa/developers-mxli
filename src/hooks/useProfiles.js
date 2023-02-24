@@ -9,7 +9,7 @@ const useProfiles = () => {
   const [profiles, updateProfiles] = useState([])
 
   useEffect(() => {
-    fetch(API_URL)
+    fetch(`${API_URL}/api/profiles`)
       .then(response => response.json())
       .then(data => {
         updatePeople(data)
