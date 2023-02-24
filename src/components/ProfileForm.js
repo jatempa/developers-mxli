@@ -126,7 +126,6 @@ const ProfileForm = () => {
             id="employed"
             name="employed"
             type="checkbox"
-            required
           />
         </ProfileFormInputContainer>
 
