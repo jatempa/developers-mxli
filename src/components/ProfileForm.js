@@ -57,12 +57,21 @@ const ProfileFormInputContainer = styled.div`
   }
 `
 
-const ProfileForm = ({ title = "" }) => {
-  const [firstNameProps, resetFirstName] = useInput("")
-  const [lastNameProps, resetLastName] = useInput("")
-  const [githubAccountProps, resetGithubAccount] = useInput("")
-  const [emailProps, resetEmail] = useInput("")
-  const [skillsProps, resetSkills] = useInput("")
+const ProfileForm = ({
+  title = "",
+  firstNameInitialValue = "",
+  lastNameInitialValue = "",
+  githubAccountInitialValue = "",
+  emailInitialValue = "",
+  skillsInitialValue = "",
+}) => {
+  const [firstNameProps, resetFirstName] = useInput(firstNameInitialValue)
+  const [lastNameProps, resetLastName] = useInput(lastNameInitialValue)
+  const [githubAccountProps, resetGithubAccount] = useInput(
+    githubAccountInitialValue
+  )
+  const [emailProps, resetEmail] = useInput(emailInitialValue)
+  const [skillsProps, resetSkills] = useInput(skillsInitialValue)
   const [checked, setChecked] = useState(false)
 
   const handleSubmit = e => {
