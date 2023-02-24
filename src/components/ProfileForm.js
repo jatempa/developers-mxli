@@ -49,11 +49,11 @@ const ProfileFormInputContainer = styled.div`
   & > input {
     height: 30px;
     max-height: 30px;
-    flex-basis: 80%;
+    width: 80%;
   }
 
   & > input#employed {
-    flex-basis: 5%;
+    width: 5%;
   }
 `
 
