@@ -1,13 +1,41 @@
 import { useEffect, useState } from "react"
-import people from "../data/people.json"
+
+const API_URL = process.env.API_URL
 
 const useProfiles = () => {
   const [name, setName] = useState("")
   const [employmentStatus, setEmploymentStatus] = useState("unemployed")
-  const [profiles, updateProfiles] = useState(people)
+  const [people, updatePeople] = useState([])
+  const [profiles, updateProfiles] = useState([])
+
+  useEffect(() => {
+    fetch(API_URL)
+      .then(response => response.json())
+      .then(data => {
+        updatePeople(data)
+        return data
+      })
+      .then(people => {
+        if (people.length > 0) {
+          const filteredPeople = people.filter(profile => {
+            switch (employmentStatus) {
+              case "employed":
+                return profile.employed
+              case "unemployed":
+                return !profile.employed
+              default:
+                return profile
+            }
+          })
+
+          updateProfiles(filteredPeople)
+        }
+      })
+  }, [])
 
   useEffect(() => {
     let filteredResults = []
+
     if (name.length < 3) {
       filteredResults = people.filter(profile => {
         switch (employmentStatus) {
