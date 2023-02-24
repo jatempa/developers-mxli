@@ -57,7 +57,7 @@ const ProfileFormInputContainer = styled.div`
   }
 `
 
-const ProfileForm = () => {
+const ProfileForm = ({ title = "" }) => {
   const [firstNameProps, resetFirstName] = useInput("")
   const [lastNameProps, resetLastName] = useInput("")
   const [githubAccountProps, resetGithubAccount] = useInput("")
@@ -79,7 +79,7 @@ const ProfileForm = () => {
 
   return (
     <ProfileFormContainer>
-      <h1>{"Create Profile"}</h1>
+      <h1>{title}</h1>
       <form onSubmit={handleSubmit}>
         <ProfileFormInputContainer>
           <label htmlFor="firstName">First Name: </label>
