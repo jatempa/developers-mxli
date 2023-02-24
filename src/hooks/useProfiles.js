@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 
-const API_URL = process.env.GATSBY_API_URL
+const API_URL = "https://developers-mxli-server.onrender.com/"
 
 const useProfiles = () => {
   const [name, setName] = useState("")
