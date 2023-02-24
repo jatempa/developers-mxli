@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 
-const API_URL = "https://developers-mxli-server.onrender.com/"
+const API_URL = process.env.GATSBY_API_URL
 
 const useProfiles = () => {
   const [name, setName] = useState("")
@@ -9,7 +9,7 @@ const useProfiles = () => {
   const [profiles, updateProfiles] = useState([])
 
   useEffect(() => {
-    fetch(`${API_URL}/api/profiles`)
+    fetch(`${API_URL}api/profiles`)
       .then(response => response.json())
       .then(data => {
         updatePeople(data)
