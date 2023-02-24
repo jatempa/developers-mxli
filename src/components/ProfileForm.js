@@ -1,5 +1,6 @@
 import React from "react"
 import styled from "styled-components"
+import useInput from "../hooks/useInput"
 
 const ProfileFormContainer = styled.div`
   font-size: 1.2rem;
@@ -58,8 +59,19 @@ const ProfileFormInputContainer = styled.div`
 `
 
 const ProfileForm = () => {
+  const [firstNameProps, resetFirstName] = useInput("")
+  const [lastNameProps, resetLastName] = useInput("")
+  const [githubAccountProps, resetGithubAccount] = useInput("")
+  const [emailProps, resetEmail] = useInput("")
+  const [skillsProps, resetSkills] = useInput("")
+
   const handleSubmit = e => {
     e.preventDefault()
+    resetFirstName()
+    resetLastName()
+    resetGithubAccount()
+    resetEmail()
+    resetSkills()
   }
 
   return (
@@ -68,28 +80,39 @@ const ProfileForm = () => {
       <form onSubmit={handleSubmit}>
         <ProfileFormInputContainer>
           <label htmlFor="firstName">First Name: </label>
-          <input id="firstName" name="firstName" />
+          <input {...firstNameProps} id="firstName" name="firstName" required />
         </ProfileFormInputContainer>
         <ProfileFormInputContainer>
           <label htmlFor="lastName">Last Name: </label>
-          <input id="lastName" name="lastName" />
+          <input {...lastNameProps} id="lastName" name="lastName" required />
         </ProfileFormInputContainer>
         <ProfileFormInputContainer>
           <label htmlFor="githubAccount">GitHub: </label>
-          <input id="githubAccount" name="githubAccount" />
+          <input
+            {...githubAccountProps}
+            id="githubAccount"
+            name="githubAccount"
+            required
+          />
         </ProfileFormInputContainer>
         <ProfileFormInputContainer>
           <label htmlFor="emailAccount">Email: </label>
-          <input id="emailAccount" name="emailAccount" />
+          <input
+            {...emailProps}
+            id="emailAccount"
+            name="emailAccount"
+            type="email"
+            required
+          />
         </ProfileFormInputContainer>
         <ProfileFormInputContainer>
           <label htmlFor="skills">Skills: </label>
           <input
+            {...skillsProps}
             id="skills"
             name="skills"
-            rows="10"
-            cols="50"
             placeholder="Introduce your skills separated by commas"
+            required
           />
         </ProfileFormInputContainer>
         <ProfileFormButton>Save</ProfileFormButton>
