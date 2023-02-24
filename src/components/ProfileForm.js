@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import styled from "styled-components"
 import useInput from "../hooks/useInput"
 
@@ -51,11 +51,6 @@ const ProfileFormInputContainer = styled.div`
     max-height: 30px;
     width: 80%;
   }
-
-  & > textarea {
-    width: 80%;
-    resize: none;
-  }
 `
 
 const ProfileForm = () => {
@@ -64,6 +59,7 @@ const ProfileForm = () => {
   const [githubAccountProps, resetGithubAccount] = useInput("")
   const [emailProps, resetEmail] = useInput("")
   const [skillsProps, resetSkills] = useInput("")
+  const [checked, setChecked] = useState(false)
 
   const handleSubmit = e => {
     e.preventDefault()
@@ -72,7 +68,10 @@ const ProfileForm = () => {
     resetGithubAccount()
     resetEmail()
     resetSkills()
+    setChecked(false)
   }
+
+  const handleClick = () => setChecked(!checked)
 
   return (
     <ProfileFormContainer>
@@ -115,6 +114,18 @@ const ProfileForm = () => {
             required
           />
         </ProfileFormInputContainer>
+        <ProfileFormInputContainer>
+          <label htmlFor="employed">Employed: </label>
+          <input
+            checked={checked}
+            onClick={handleClick}
+            id="employed"
+            name="employed"
+            type="checkbox"
+            required
+          />
+        </ProfileFormInputContainer>
+
         <ProfileFormButton>Save</ProfileFormButton>
       </form>
     </ProfileFormContainer>
