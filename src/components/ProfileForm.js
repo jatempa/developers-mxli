@@ -86,7 +86,7 @@ const ProfileForm = ({
     githubAccountInitialValue
   )
   const [emailProps, resetEmail] = useInput(emailInitialValue)
-  const [selectedOptions, setSelectedOptions] = useState()
+  const [selectedOptions, setSelectedOptions] = useState([])
   const [checked, setChecked] = useState(false)
   const [passwordProps, resetPassword] = useInput("")
   const [confirmPasswordProps, resetConfirmPassword] = useInput("")
@@ -98,6 +98,7 @@ const ProfileForm = ({
     resetGithubAccount()
     resetEmail()
     setChecked(false)
+    setSelectedOptions([])
     resetPassword()
     resetConfirmPassword()
   }
