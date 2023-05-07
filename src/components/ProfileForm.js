@@ -164,11 +164,11 @@ const ProfileForm = ({
           />
         </ProfileFormInputContainer>
         <ProfileFormInputContainer>
-          <label htmlFor="passsword">Password: </label>
+          <label htmlFor="password">Password: </label>
           <input
             {...passwordProps}
-            id="passsword"
-            name="passsword"
+            id="password"
+            name="password"
             type="password"
             required
           />
