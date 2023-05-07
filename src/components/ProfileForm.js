@@ -74,6 +74,18 @@ const ProfileFormSelectInputContainer = styled.div`
   }
 `
 
+const ProfileFormPasswordError = styled.div`
+  background-color: red;
+  margin-top: 0.75em;
+  width: 100%;
+  height: 50px;
+  color: white;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-align: center;
+  padding: 15px 0px;
+`
+
 const options = {
   method: "POST",
   mode: "cors",
@@ -101,11 +113,11 @@ const ProfileForm = ({
   const [employed, setEmployed] = useState(false)
   const [passwordProps, resetPassword] = useInput("")
   const [confirmPasswordProps, resetConfirmPassword] = useInput("")
+  const passwordMatches = (firstPassword, secondPassword) =>
+    firstPassword === secondPassword
 
   const handleSubmit = async e => {
     e.preventDefault()
-
-    if (passwordProps.value !== confirmPasswordProps.value) return
 
     const firstName = firstNameProps.value
     const lastName = lastNameProps.value
@@ -123,7 +135,7 @@ const ProfileForm = ({
       password,
     }
 
-    const response = await fetch(`${API_URL}user`, {
+    const response = await fetch(`http://localhost:3000/user`, {
       ...options,
       body: JSON.stringify(payload),
     })
@@ -219,7 +231,13 @@ const ProfileForm = ({
             required
           />
         </ProfileFormInputContainer>
-        <ProfileFormButton>Save</ProfileFormButton>
+        {!passwordMatches(passwordProps.value, confirmPasswordProps.value) ? (
+          <ProfileFormPasswordError>
+            Passwords do NOT match!
+          </ProfileFormPasswordError>
+        ) : (
+          <ProfileFormButton>Save</ProfileFormButton>
+        )}
       </form>
     </ProfileFormContainer>
   )
