@@ -2,7 +2,8 @@ import React, { useState } from "react"
 import styled from "styled-components"
 import useInput from "../hooks/useInput"
 import Select from "react-select"
-import options from "../data/options.json"
+import skills from "../data/options.json"
+import { API_URL } from "../hooks/useProfiles"
 
 const ProfileFormContainer = styled.div`
   font-size: 1.2rem;
@@ -73,6 +74,15 @@ const ProfileFormSelectInputContainer = styled.div`
   }
 `
 
+const options = {
+  method: "POST",
+  mode: "cors",
+  headers: {
+    "Content-Type": "application/json",
+  },
+  body: null,
+}
+
 const ProfileForm = ({
   title = "",
   firstNameInitialValue = "",
@@ -86,28 +96,52 @@ const ProfileForm = ({
     githubAccountInitialValue
   )
   const [emailProps, resetEmail] = useInput(emailInitialValue)
-  const [selectedOptions, setSelectedOptions] = useState([])
+  const [selectedSkills, setSelectedSkills] = useState([])
   const [checked, setChecked] = useState(false)
   const [passwordProps, resetPassword] = useInput("")
   const [confirmPasswordProps, resetConfirmPassword] = useInput("")
 
-  const handleSubmit = e => {
+  const handleSubmit = async e => {
     e.preventDefault()
+
+    if (passwordProps.value !== confirmPasswordProps.value) return
+
+    const firstName = firstNameProps.value
+    const lastName = lastNameProps.value
+    const githubAccount = githubAccountProps.value
+    const email = emailProps.value
+    const password = passwordProps.value
+
+    const payload = {
+      firstName,
+      lastName,
+      githubAccount,
+      email,
+      selectedSkills,
+      checked,
+      password,
+    }
+
+    const response = await fetch(`${API_URL}user`, {
+      ...options,
+      body: payload,
+    })
+
+    console.log(response)
     resetFirstName()
     resetLastName()
     resetGithubAccount()
     resetEmail()
     setChecked(false)
-    setSelectedOptions([])
+    setSelectedSkills([])
     resetPassword()
     resetConfirmPassword()
   }
 
   const handleClick = () => setChecked(!checked)
 
-  // Function triggered on selection
-  const handleSelect = options => {
-    setSelectedOptions(options)
+  const handleSelect = skills => {
+    setSelectedSkills(skills)
   }
 
   return (
@@ -144,9 +178,9 @@ const ProfileForm = ({
         <ProfileFormSelectInputContainer>
           <label htmlFor="skills">Skills: </label>
           <Select
-            options={options}
+            options={skills}
             isMulti
-            value={selectedOptions}
+            value={selectedSkills}
             onChange={handleSelect}
             isSearchable={true}
             id="skills"
