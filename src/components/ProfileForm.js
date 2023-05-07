@@ -124,13 +124,14 @@ const ProfileForm = ({
     const githubAccount = githubAccountProps.value
     const email = emailProps.value
     const password = passwordProps.value
+    const skills = selectedSkills.map(skill => skill.value)
 
     const payload = {
       firstName,
       lastName,
       githubAccount,
       email,
-      selectedSkills,
+      skills,
       employed,
       password,
     }
@@ -140,7 +141,6 @@ const ProfileForm = ({
       body: JSON.stringify(payload),
     })
 
-    console.log(response)
     resetFirstName()
     resetLastName()
     resetGithubAccount()
