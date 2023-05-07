@@ -80,6 +80,7 @@ const options = {
   headers: {
     "Content-Type": "application/json",
   },
+
   body: null,
 }
 
@@ -97,7 +98,7 @@ const ProfileForm = ({
   )
   const [emailProps, resetEmail] = useInput(emailInitialValue)
   const [selectedSkills, setSelectedSkills] = useState([])
-  const [checked, setChecked] = useState(false)
+  const [employed, setEmployed] = useState(false)
   const [passwordProps, resetPassword] = useInput("")
   const [confirmPasswordProps, resetConfirmPassword] = useInput("")
 
@@ -118,13 +119,13 @@ const ProfileForm = ({
       githubAccount,
       email,
       selectedSkills,
-      checked,
+      employed,
       password,
     }
 
     const response = await fetch(`${API_URL}user`, {
       ...options,
-      body: payload,
+      body: JSON.stringify(payload),
     })
 
     console.log(response)
@@ -132,13 +133,13 @@ const ProfileForm = ({
     resetLastName()
     resetGithubAccount()
     resetEmail()
-    setChecked(false)
+    setEmployed(false)
     setSelectedSkills([])
     resetPassword()
     resetConfirmPassword()
   }
 
-  const handleClick = () => setChecked(!checked)
+  const handleEmployedStatus = () => setEmployed(!employed)
 
   const handleSelect = skills => {
     setSelectedSkills(skills)
@@ -191,8 +192,8 @@ const ProfileForm = ({
         <ProfileFormInputContainer>
           <label htmlFor="employed">Employed: </label>
           <input
-            checked={checked}
-            onClick={handleClick}
+            checked={employed}
+            onClick={handleEmployedStatus}
             id="employed"
             name="employed"
             type="checkbox"
