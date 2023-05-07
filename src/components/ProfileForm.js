@@ -1,12 +1,14 @@
 import React, { useState } from "react"
 import styled from "styled-components"
 import useInput from "../hooks/useInput"
+import Select from "react-select"
+import options from "../data/options.json"
 
 const ProfileFormContainer = styled.div`
   font-size: 1.2rem;
   padding: 25px;
   margin: 2em auto;
-  width: 60%;
+  width: 700px;
 
   & > h1 {
     margin-bottom: 0.75em;
@@ -57,13 +59,26 @@ const ProfileFormInputContainer = styled.div`
   }
 `
 
+const ProfileFormSelectInputContainer = styled.div`
+  margin-bottom: 10px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  & > select {
+    background-color: red;
+    height: 30px;
+    max-height: 30px;
+    width: 300px;
+  }
+`
+
 const ProfileForm = ({
   title = "",
   firstNameInitialValue = "",
   lastNameInitialValue = "",
   githubAccountInitialValue = "",
   emailInitialValue = "",
-  skillsInitialValue = "",
 }) => {
   const [firstNameProps, resetFirstName] = useInput(firstNameInitialValue)
   const [lastNameProps, resetLastName] = useInput(lastNameInitialValue)
@@ -71,8 +86,10 @@ const ProfileForm = ({
     githubAccountInitialValue
   )
   const [emailProps, resetEmail] = useInput(emailInitialValue)
-  const [skillsProps, resetSkills] = useInput(skillsInitialValue)
+  const [selectedOptions, setSelectedOptions] = useState()
   const [checked, setChecked] = useState(false)
+  const [passwordProps, resetPassword] = useInput("")
+  const [confirmPasswordProps, resetConfirmPassword] = useInput("")
 
   const handleSubmit = e => {
     e.preventDefault()
@@ -80,11 +97,17 @@ const ProfileForm = ({
     resetLastName()
     resetGithubAccount()
     resetEmail()
-    resetSkills()
     setChecked(false)
+    resetPassword()
+    resetConfirmPassword()
   }
 
   const handleClick = () => setChecked(!checked)
+
+  // Function triggered on selection
+  const handleSelect = options => {
+    setSelectedOptions(options)
+  }
 
   return (
     <ProfileFormContainer>
@@ -117,16 +140,19 @@ const ProfileForm = ({
             required
           />
         </ProfileFormInputContainer>
-        <ProfileFormInputContainer>
+        <ProfileFormSelectInputContainer>
           <label htmlFor="skills">Skills: </label>
-          <input
-            {...skillsProps}
+          <Select
+            options={options}
+            isMulti
+            value={selectedOptions}
+            onChange={handleSelect}
+            isSearchable={true}
             id="skills"
-            name="skills"
-            placeholder="Introduce your skills separated by commas"
+            placeholder="Introduce your skills"
             required
           />
-        </ProfileFormInputContainer>
+        </ProfileFormSelectInputContainer>
         <ProfileFormInputContainer>
           <label htmlFor="employed">Employed: </label>
           <input
@@ -137,7 +163,26 @@ const ProfileForm = ({
             type="checkbox"
           />
         </ProfileFormInputContainer>
-
+        <ProfileFormInputContainer>
+          <label htmlFor="passsword">Password: </label>
+          <input
+            {...passwordProps}
+            id="passsword"
+            name="passsword"
+            type="password"
+            required
+          />
+        </ProfileFormInputContainer>
+        <ProfileFormInputContainer>
+          <label htmlFor="confirmPassword">Confirm Password: </label>
+          <input
+            {...confirmPasswordProps}
+            id="confirmPassword"
+            name="confirmPassword"
+            type="password"
+            required
+          />
+        </ProfileFormInputContainer>
         <ProfileFormButton>Save</ProfileFormButton>
       </form>
     </ProfileFormContainer>
