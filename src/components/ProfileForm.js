@@ -236,7 +236,7 @@ const ProfileForm = ({
             Passwords do NOT match!
           </ProfileFormPasswordError>
         ) : (
-          <ProfileFormButton>Save</ProfileFormButton>
+          <ProfileFormButton>Register</ProfileFormButton>
         )}
       </form>
     </ProfileFormContainer>
