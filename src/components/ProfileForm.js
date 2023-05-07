@@ -3,7 +3,6 @@ import styled from "styled-components"
 import useInput from "../hooks/useInput"
 import Select from "react-select"
 import skills from "../data/options.json"
-import { API_URL } from "../hooks/useProfiles"
 
 const ProfileFormContainer = styled.div`
   font-size: 1.2rem;
