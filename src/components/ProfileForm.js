@@ -3,6 +3,7 @@ import styled from "styled-components"
 import useInput from "../hooks/useInput"
 import Select from "react-select"
 import skills from "../data/options.json"
+import Cookies from "universal-cookie"
 
 const ProfileFormContainer = styled.div`
   font-size: 1.2rem;
@@ -95,8 +96,6 @@ const options = {
   body: null,
 }
 
-const API_URL = process.env.GATSBY_API_URL
-
 const ProfileForm = ({
   title = "",
   firstNameInitialValue = "",
@@ -116,40 +115,49 @@ const ProfileForm = ({
   const [confirmPasswordProps, resetConfirmPassword] = useInput("")
   const passwordMatches = (firstPassword, secondPassword) =>
     firstPassword === secondPassword
+  const cookies = new Cookies()
 
   const handleSubmit = async e => {
     e.preventDefault()
 
-    const firstName = firstNameProps.value
-    const lastName = lastNameProps.value
-    const githubAccount = githubAccountProps.value
-    const email = emailProps.value
-    const password = passwordProps.value
-    const skills = selectedSkills.map(skill => skill.value)
+    try {
+      const firstName = firstNameProps.value
+      const lastName = lastNameProps.value
+      const githubAccount = githubAccountProps.value
+      const email = emailProps.value
+      const password = passwordProps.value
+      const skills = selectedSkills.map(skill => skill.value)
 
-    const payload = {
-      firstName,
-      lastName,
-      githubAccount,
-      email,
-      skills,
-      employed,
-      password,
+      const payload = {
+        firstName,
+        lastName,
+        githubAccount,
+        email,
+        skills,
+        employed,
+        password,
+      }
+
+      const response = await fetch(`${process.env.GATSBY_API_URL}user`, {
+        ...options,
+        body: JSON.stringify(payload),
+      })
+        .then(res => res.json())
+        .then(res => res)
+
+      resetFirstName()
+      resetLastName()
+      resetGithubAccount()
+      resetEmail()
+      setEmployed(false)
+      setSelectedSkills([])
+      resetPassword()
+      resetConfirmPassword()
+
+      cookies.set("token", response.token, { path: "/" })
+    } catch (e) {
+      console.log(e)
     }
-
-    await fetch(`${API_URL}user`, {
-      ...options,
-      body: JSON.stringify(payload),
-    })
-
-    resetFirstName()
-    resetLastName()
-    resetGithubAccount()
-    resetEmail()
-    setEmployed(false)
-    setSelectedSkills([])
-    resetPassword()
-    resetConfirmPassword()
   }
 
   const handleEmployedStatus = () => setEmployed(!employed)
