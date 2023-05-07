@@ -96,6 +96,8 @@ const options = {
   body: null,
 }
 
+const API_URL = process.env.GATSBY_API_URL
+
 const ProfileForm = ({
   title = "",
   firstNameInitialValue = "",
@@ -136,7 +138,7 @@ const ProfileForm = ({
       password,
     }
 
-    const response = await fetch(`http://localhost:3000/user`, {
+    await fetch(`${API_URL}user`, {
       ...options,
       body: JSON.stringify(payload),
     })
@@ -153,9 +155,7 @@ const ProfileForm = ({
 
   const handleEmployedStatus = () => setEmployed(!employed)
 
-  const handleSelect = skills => {
-    setSelectedSkills(skills)
-  }
+  const handleSelect = skills => setSelectedSkills(skills)
 
   return (
     <ProfileFormContainer>

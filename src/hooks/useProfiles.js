@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 
-export const API_URL = process.env.GATSBY_API_URL
+const API_URL = process.env.GATSBY_API_URL
 
 const useProfiles = () => {
   const [name, setName] = useState("")
