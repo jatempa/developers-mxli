@@ -12,17 +12,21 @@ const ProfileCard = styled.div`
 `
 
 const Profile = props => {
-  const { firstName, lastName, github, skills, employed, picture } = props
+  const { firstName, lastName, githubAccount, skills, employed, picture } =
+    props
   return (
     <ProfileCard>
-      <GithubLink github={github}>
+      <GithubLink github={githubAccount}>
         <Picture picture={picture} />
       </GithubLink>
       <h2>{`${firstName} ${lastName}`}</h2>
       <ul>
         <li>
           <span>
-            Github: <GithubLink github={github}>{`@${github}`}</GithubLink>
+            Github:{" "}
+            <GithubLink
+              github={githubAccount}
+            >{`@${githubAccount}`}</GithubLink>
           </span>
         </li>
         <li>
