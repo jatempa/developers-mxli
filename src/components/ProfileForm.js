@@ -138,7 +138,7 @@ const ProfileForm = ({
         password,
       }
 
-      const response = await fetch(`${process.env.GATSBY_API_URL}user`, {
+      const response = await fetch(`${process.env.GATSBY_API_URL}/user`, {
         ...options,
         body: JSON.stringify(payload),
       })

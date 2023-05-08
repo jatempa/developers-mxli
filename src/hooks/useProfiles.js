@@ -1,7 +1,5 @@
 import { useEffect, useState } from "react"
 
-const API_URL = process.env.GATSBY_API_URL
-
 const useProfiles = () => {
   const [name, setName] = useState("")
   const [employmentStatus, setEmploymentStatus] = useState("unemployed")
@@ -9,7 +7,7 @@ const useProfiles = () => {
   const [profiles, updateProfiles] = useState([])
 
   useEffect(() => {
-    fetch(`${API_URL}api/profiles`)
+    fetch(`${process.env.GATSBY_API_URL}/api/profiles`)
       .then(response => response.json())
       .then(data => {
         updatePeople(data)
